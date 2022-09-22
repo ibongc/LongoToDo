@@ -1,4 +1,5 @@
 ﻿using System;
+using LongoToDo.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace LongoToDo
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new HomePage();
         }
 
         protected override void OnStart ()

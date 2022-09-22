@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using APIClient.Services;
 using LongoToDo.ViewModels;
 using Refit;
 using Xamarin.Forms;

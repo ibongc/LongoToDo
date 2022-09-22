@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using APIClient.ApiModels;
-using APIClient.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LongoToDo.Helper;
+using LongoToDo.Models;
 using LongoToDo.Services;
 using Refit;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -19,7 +18,7 @@ namespace LongoToDo.ViewModels
     {
 
         [ObservableProperty]
-        private ObservableCollection<ToDoApiModel> todoItems;
+        private ObservableCollection<ToDoItemModel> todoItems;
 
         [RelayCommand]
         void NewItem()
@@ -29,7 +28,7 @@ namespace LongoToDo.ViewModels
         }
 
         [RelayCommand]
-        async Task DeleteItem(ToDoApiModel item)
+        async Task DeleteItem(ToDoItemModel item)
         {
             //Delete de item
             await ToDoService.DeleteToDoItem(item.Key);
@@ -40,6 +39,21 @@ namespace LongoToDo.ViewModels
             //Show the message
             var _messageHelper = DependencyService.Get<IMessagesHelper>();
             await _messageHelper.ShowMessageAsync("Deleted", $"ToDo item {item.Name} has been deleted correctly");
+     
+            
+        }
+
+        [RelayCommand]
+        async Task CheckItem(ItemTappedEventArgs args)
+        {
+            
+            var item = args.Item as ToDoItemModel;
+            if (item != null)
+                item.IsComplete = !item.IsComplete;
+            
+            
+                
+
         }
 
         public HomeViewModel()
@@ -50,7 +64,7 @@ namespace LongoToDo.ViewModels
         public async Task Init()
         {
             //Get items from remote API
-            TodoItems = new ObservableCollection<ToDoApiModel>(await ToDoService.GetTodoItems());       
+            TodoItems = new ObservableCollection<ToDoItemModel>(await ToDoService.GetTodoItems());       
         }
     }
 }

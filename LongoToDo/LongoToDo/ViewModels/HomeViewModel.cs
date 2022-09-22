@@ -20,6 +20,9 @@ namespace LongoToDo.ViewModels
         [ObservableProperty]
         private ObservableCollection<ToDoItemModel> todoItems;
 
+        [ObservableProperty]
+        private bool isListRefreshing;
+
         [RelayCommand]
         void NewItem()
         {
@@ -50,10 +53,14 @@ namespace LongoToDo.ViewModels
             var item = args.Item as ToDoItemModel;
             if (item != null)
                 item.IsComplete = !item.IsComplete;
-            
-            
-                
+        }
 
+        [RelayCommand]
+        async Task RefreshList()
+        {
+            await Init();
+
+            IsListRefreshing = false;
         }
 
         public HomeViewModel()

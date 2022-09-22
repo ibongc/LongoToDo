@@ -11,7 +11,7 @@
 
         <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
 
-            <ListView ItemsSource="{Binding TodoItems}" Margin="0,20" SelectionMode="None">
+            <ListView ItemsSource="{Binding TodoItems}" Margin="0,20" SelectionMode="None" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshListCommand}" IsRefreshing="{Binding IsListRefreshing}">
                 <ListView.Behaviors>
                     <xct:EventToCommandBehavior EventName="ItemTapped" Command="{Binding CheckItemCommand}"/>
                 </ListView.Behaviors>

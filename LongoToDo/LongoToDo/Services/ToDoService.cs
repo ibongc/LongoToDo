@@ -45,7 +45,22 @@ namespace LongoToDo.Services
                 //TODO: Manage exception
             }
         }
-        
+
+        public static async Task DeleteToDoItem(string key)
+        {
+            try
+            {
+
+                var todoApiSerive = RestService.For<IToDoService>(Constants.ApiUrl);
+                await todoApiSerive.DeleteToDoItem(key);
+
+            }
+            catch (Exception ex)
+            {
+                //TODO: Manage exception
+            }
+        }
+
     }
 }
 

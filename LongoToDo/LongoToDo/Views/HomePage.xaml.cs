@@ -19,24 +19,17 @@ namespace LongoToDo.Views
         {
             InitializeComponent();
 
-            
             viewModel = new HomeViewModel();
 
             this.BindingContext = viewModel;
-
-            
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
+            //Init and refresh when page apears
             viewModel.Init();
-        }
-
-        void New_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new NewItemPage());
         }
 
     }

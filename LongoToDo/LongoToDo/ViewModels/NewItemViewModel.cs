@@ -16,6 +16,7 @@ namespace LongoToDo.ViewModels
         [RelayCommand]
         async Task SaveItem()
         {
+            //Is Name is not empty, save and go back
             if (!string.IsNullOrWhiteSpace(toDoItem.Name))
             {
                 await ToDoService.CreateToDoItem(toDoItem);

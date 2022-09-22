@@ -29,6 +29,22 @@ namespace LongoToDo.Services
 
             return toDoItems;
         }
+
+
+        public static async Task CreateToDoItem(ToDoApiModel item)
+        {
+            try
+            {
+
+                var todoApiSerive = RestService.For<IToDoService>(Constants.ApiUrl);
+                await todoApiSerive.CreateToDoItem(item);
+
+            }
+            catch (Exception ex)
+            {
+                //TODO: Manage exception
+            }
+        }
         
     }
 }

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using APIClient.ApiModels;
-using APIClient.Services;
+using LongoToDo.Models;
 using Refit;
 
 namespace LongoToDo.Services
@@ -11,9 +10,9 @@ namespace LongoToDo.Services
     public static class ToDoService
     {
 
-        public static async Task<List<ToDoApiModel>> GetTodoItems()
+        public static async Task<List<ToDoItemModel>> GetTodoItems()
         {
-            var toDoItems = new List<ToDoApiModel>();
+            var toDoItems = new List<ToDoItemModel>();
 
             try
             {
@@ -31,7 +30,7 @@ namespace LongoToDo.Services
         }
 
 
-        public static async Task CreateToDoItem(ToDoApiModel item)
+        public static async Task CreateToDoItem(ToDoItemModel item)
         {
             try
             {
@@ -60,6 +59,8 @@ namespace LongoToDo.Services
                 //TODO: Manage exception
             }
         }
+
+
 
     }
 }

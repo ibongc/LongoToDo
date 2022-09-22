@@ -19,9 +19,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\APIClient.csproj" />
+    <PackageReference Include="Refit" Version="6.3.2" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\" />
@@ -31,6 +29,7 @@
     <None Remove="Services\" />
     <None Remove="Converters\" />
     <None Remove="Helper\" />
+    <None Remove="Refit" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

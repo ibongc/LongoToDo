@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using APIClient.ApiModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using LongoToDo.Helper;
+using LongoToDo.Models;
 using LongoToDo.Services;
+using Xamarin.Forms;
 
 namespace LongoToDo.ViewModels
 {
@@ -11,7 +13,7 @@ namespace LongoToDo.ViewModels
     public partial class NewItemViewModel
     {
         [ObservableProperty]
-        ToDoApiModel toDoItem;
+        ToDoItemModel toDoItem;
 
         [RelayCommand]
         async Task SaveItem()
@@ -20,14 +22,13 @@ namespace LongoToDo.ViewModels
             if (!string.IsNullOrWhiteSpace(toDoItem.Name))
             {
                 await ToDoService.CreateToDoItem(toDoItem);
-
                 await App.NavigationService.GoBack();
             }
         }
 
         public NewItemViewModel()
         {
-            toDoItem = new ToDoApiModel();
+            toDoItem = new ToDoItemModel();
         }
     }
 }

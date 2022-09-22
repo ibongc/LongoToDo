@@ -14,6 +14,9 @@ namespace APIClient.Services
 
         [Post("/api/todo")]
         Task CreateToDoItem([Body] ToDoApiModel user);
+
+        [Delete("/api/todo/{key}")]
+        Task DeleteToDoItem(string key);
     }
 }
 

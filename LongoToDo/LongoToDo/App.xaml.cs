@@ -16,8 +16,13 @@ namespace LongoToDo
         {
             InitializeComponent();
 
+            //Configure Navigation Helper
             configureNavigationHelper();
 
+            //Register Message Helper
+            DependencyService.Register<IMessagesHelper, MessagesHelper>();
+
+            //Set HomePage as Main Page
             var mainPage = ((NavigationHelper)NavigationService).SetRootPage("HomePage");
 
             MainPage = mainPage;

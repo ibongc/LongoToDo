@@ -15,11 +15,19 @@ namespace LongoToDo.ViewModels
     [INotifyPropertyChanged]
     public partial class HomeViewModel
     {
+
         [ObservableProperty]
-        private ObservableCollection<ToDoApiModel> todoItems;    
+        private ObservableCollection<ToDoApiModel> todoItems;
+
+        [RelayCommand]
+        void NewItem()
+        {
+            App.NavigationService.NavigateAsync("NewItemPage");
+        }
 
         public HomeViewModel()
         {
+            
         }
 
         public async Task Init()

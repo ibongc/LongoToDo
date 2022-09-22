@@ -2,29 +2,33 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="LongoToDo.Views.HomePage">
+    x:Class="LongoToDo.Views.HomePage"
+    Title="LongoToDo">
 
     <ContentPage.Content>
 
         <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
 
             <CollectionView ItemsSource="{Binding TodoItems}" Margin="0,20">
+                
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <Grid HeightRequest="50" Padding="40,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="Center">
 
-                        <StackLayout Orientation="Horizontal" Padding="40,0" HorizontalOptions="Fill">
+                                <Label Text="{Binding Name}"/>
 
-                            <Label Text="{Binding Name}"/>
-
-                            <Image HorizontalOptions="EndAndExpand" Source="check" IsVisible="{Binding IsComplete}"/>
+                                <Image HorizontalOptions="EndAndExpand" Source="check" IsVisible="{Binding IsComplete}"/>
            
-                        </StackLayout>
+                            </StackLayout>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray" VerticalOptions="End"/>
+                        </Grid>
 
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-
+            <Button Text="New" Command="{Binding NewItemCommand}" VerticalOptions="End"/>
 
         </StackLayout>
         

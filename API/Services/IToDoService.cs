@@ -11,6 +11,9 @@ namespace APIClient.Services
     {
         [Get("/api/todo")]
         Task<List<ToDoApiModel>>GetToDoList();
+
+        [Post("/api/todo")]
+        Task CreateToDoItem([Body] ToDoApiModel user);
     }
 }
 

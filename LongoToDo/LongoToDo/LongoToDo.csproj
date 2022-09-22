@@ -30,11 +30,13 @@
     <None Remove="CommunityToolkit.Mvvm" />
     <None Remove="Services\" />
     <None Remove="Converters\" />
+    <None Remove="Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
     <Folder Include="Converters\" />
+    <Folder Include="Helper\" />
   </ItemGroup>
 </Project>

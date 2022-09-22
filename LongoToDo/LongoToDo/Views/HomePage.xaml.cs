@@ -19,13 +19,25 @@ namespace LongoToDo.Views
         {
             InitializeComponent();
 
+            
             viewModel = new HomeViewModel();
 
             this.BindingContext = viewModel;
 
+            
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
             viewModel.Init();
         }
 
+        void New_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new NewItemPage());
+        }
 
     }
 }
